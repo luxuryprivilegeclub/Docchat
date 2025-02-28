@@ -1,0 +1,141 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 20 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 30% 10%;
+
+    --primary: 35 55% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 35 40% 96%;
+    --secondary-foreground: 35 55% 40%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 35 40% 94%;
+    --accent-foreground: 35 55% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 20 15% 90%;
+    --input: 20 15% 90%;
+    --ring: 35 55% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 30% 5%;
+    --foreground: 35 40% 85%;
+
+    --card: 20 30% 8%;
+    --card-foreground: 35 40% 85%;
+
+    --popover: 20 30% 8%;
+    --popover-foreground: 35 40% 85%;
+
+    --primary: 35 55% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 30% 15%;
+    --secondary-foreground: 35 40% 85%;
+
+    --muted: 20 30% 15%;
+    --muted-foreground: 35 30% 60%;
+
+    --accent: 20 30% 15%;
+    --accent-foreground: 35 40% 85%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 35 40% 85%;
+
+    --border: 20 30% 20%;
+    --input: 20 30% 20%;
+    --ring: 35 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Apply animations to elements */
+.card {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.tab-content {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transitions */
+button, a, input, select, textarea {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Improve typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
